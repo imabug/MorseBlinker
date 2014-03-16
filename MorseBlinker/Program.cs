@@ -12,7 +12,10 @@ namespace MorseBlinker
   {
     private static void blinker(OutputPort p, string a)
     {
-      int dit = 100;                    // dit length in milliseconds
+      // Make the LED blink a morse code string provided by a
+      // Change the duration of the blinking by adjusting the dit variable
+
+      int dit = 50;                    // dit length in milliseconds
       int dah = dit * 3;                // dah length in milliseconds
       int space = dit * 7;              // space length in milliseconds
 
@@ -46,6 +49,7 @@ namespace MorseBlinker
     }
     public static void Main()
     {
+      // Text to Morse code conversion table
       Hashtable morse = new Hashtable();
 
       morse.Add('a', ".-");
@@ -91,7 +95,8 @@ namespace MorseBlinker
       morse.Add('!', "-.-.--");
       morse.Add('/', "-..-.");
 
-      string morseText = "nr4cb";
+      // Text to play in Morse code. Change this to whatever you want
+      string morseText = "ab4ug";
 
       OutputPort led = new OutputPort(Pins.ONBOARD_LED, false);
 
@@ -99,12 +104,10 @@ namespace MorseBlinker
         // go through all the characters in morseText
         foreach (char c in morseText)
         {
-          // Get the morse code sequence for this character
-          // string morseLetter = (string)morse[c.ToLower()];
-
+          // Blink the character in Morse code
           blinker(led, (string)morse[c.ToLower()]);
-
         }
+
         // Delay 1s before repeating the text
         led.Write(false);
         Thread.Sleep(1000);
