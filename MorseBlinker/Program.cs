@@ -85,6 +85,11 @@ namespace MorseBlinker
       morse.Add('8', "---..");
       morse.Add('9', "----.");
       morse.Add(' ', " ");
+      morse.Add('.', "·–·–·–");
+      morse.Add(',', "--..--");
+      morse.Add('?', "..--..");
+      morse.Add('!', "-.-.--");
+      morse.Add('/', "-..-.");
 
       string morseText = "nr4cb";
 
